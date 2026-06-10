@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: DealPilot MongoDB MCP Server Tools
+  version: 1.0.0
+paths:
+  /search_similar_projects:
+    post:
+      summary: Search past projects by industry
+      operationId: search_similar_projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                industry:
+                  type: string
+                  description: The target business industry to find matched case studies for.
+              required:
+                - industry
+      responses:
+        "200":
+          description: A list of similar projects matched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    industry:
+                      type: string
+                    description:
+                      type: string
+                    outcome:
+                      type: string
+                    budget_range:
+                      type: string
+  /save_proposal:
+    post:
+      summary: Saves a generated proposal document
+      operationId: save_proposal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transcript:
+                  type: string
+                requirements:
+                  type: object
+                proposal_text:
+                  type: string
+              required:
+                - transcript
+                - requirements
+                - proposal_text
+      responses:
+        "200":
+          description: Confirmation receipt
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  proposal_id:
+                    type: string
+                  message:
+                    type: string

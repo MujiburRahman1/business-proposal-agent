@@ -1,0 +1,9 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# ADK local session cache (do not commit)
+**/.adk/
+*.db
