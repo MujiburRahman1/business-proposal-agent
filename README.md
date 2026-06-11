@@ -330,4 +330,3 @@ business-proposal-agent/
 
 Built for the **Google Cloud Rapid Agent Hackathon** (MongoDB Partner Track).
 
-Repository: [github.com/AaronTide/business-proposal-agent](https://github.com/AaronTide/business-proposal-agent)
