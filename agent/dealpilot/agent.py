@@ -11,14 +11,11 @@ from mcp import StdioServerParameters
 load_dotenv(Path(__file__).parent / ".env")
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
-MCP_PYTHON = ROOT_DIR / "backend" / ".venv" / "Scripts" / "python.exe"
 MCP_SCRIPT = ROOT_DIR / "backend" / "mcp_server.py"
+MCP_PYTHON = Path(sys.executable)
 
 MONGODB_URI = os.getenv("MDB_MCP_CONNECTION_STRING") or os.getenv("MONGODB_URI", "")
 DB_NAME = os.getenv("MONGODB_DATABASE", "proposaldb")
-
-if not MCP_PYTHON.exists():
-    MCP_PYTHON = Path(sys.executable)
 
 DEALPILOT_INSTRUCTION = f"""
 You are DealPilot, an autonomous AI sales agent that turns discovery call transcripts
