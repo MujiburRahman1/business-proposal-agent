@@ -11,7 +11,9 @@ from mcp import StdioServerParameters
 load_dotenv(Path(__file__).parent / ".env")
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
-MCP_SCRIPT = ROOT_DIR / "backend" / "mcp_server.py"
+_mcp_in_backend = ROOT_DIR / "backend" / "mcp_server.py"
+_mcp_in_root = ROOT_DIR / "mcp_server.py"
+MCP_SCRIPT = _mcp_in_backend if _mcp_in_backend.exists() else _mcp_in_root
 MCP_PYTHON = Path(sys.executable)
 
 MONGODB_URI = os.getenv("MDB_MCP_CONNECTION_STRING") or os.getenv("MONGODB_URI", "")

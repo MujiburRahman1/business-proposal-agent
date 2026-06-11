@@ -74,7 +74,7 @@ flowchart LR
 ### 1. Clone and configure
 
 ```powershell
-git clone https://github.com/AaronTide/business-proposal-agent.git
+git clone https://github.com/MujiburRahman1/business-proposal-agent.git
 cd business-proposal-agent
 ```
 
@@ -247,12 +247,15 @@ business-proposal-agent/
 │   ├── dealpilot/
 │   │   ├── agent.py          # Google ADK agent + MongoDB MCP
 │   │   └── .env.example
+│   ├── main.py               # Cloud Run entry (uvicorn 0.0.0.0)
+│   ├── Dockerfile            # ADK agent Cloud Run image
 │   ├── scripts/
 │   │   └── start_agent.ps1
 │   ├── system_prompt.md
 │   └── mcp_setup.md
 ├── backend/
 │   ├── main.py               # FastAPI API + fallback pipeline
+│   ├── Dockerfile            # Backend Cloud Run image
 │   ├── mcp_server.py         # MongoDB MCP server (FastMCP)
 │   ├── seed_db.py            # Seed sample projects
 │   └── scripts/test_mcp.py
@@ -264,6 +267,7 @@ business-proposal-agent/
 │   └── components/
 │       ├── AgentChat.tsx
 │       └── ProposalOutput.tsx
+├── Dockerfile                # Backend image (repo root, for Cloud Run)
 └── README.md
 ```
 
@@ -273,9 +277,9 @@ business-proposal-agent/
 
 | Service | Current | Target | Status |
 |---------|---------|--------|--------|
-| Frontend | `localhost:3000` | Vercel | Not deployed |
-| ADK Agent | `localhost:8080` | Google Cloud Run | Not deployed |
-| Backend API | `localhost:8000` | Google Cloud Run | Not deployed |
+| Frontend | Vercel | Vercel | Deployed |
+| ADK Agent | Cloud Run | Google Cloud Run | Deployed |
+| Backend API | Cloud Run | Google Cloud Run | Deployed |
 | MongoDB | MongoDB Atlas | MongoDB Atlas | Deployed |
 
 **What still needs to be done:**
@@ -330,4 +334,6 @@ business-proposal-agent/
 
 Built for the **Google Cloud Rapid Agent Hackathon** (MongoDB Partner Track).
 
-Repository: [github.com/AaronTide/business-proposal-agent](https://github.com/AaronTide/business-proposal-agent)
+Repository: [github.com/MujiburRahman1/business-proposal-agent](https://github.com/MujiburRahman1/business-proposal-agent)
+
+Live demo: [business-proposal-agent.vercel.app](https://business-proposal-agent.vercel.app)
